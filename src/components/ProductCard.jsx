@@ -47,6 +47,7 @@ const ProductCard = ({ product }) => {
           <Link to={`/products/${product.id}`} className="btn view-btn">
             Ver Producto
           </Link>
+
           <Link to={`/products/edit/${product.id}`} className="btn edit-btn">
             Editar
           </Link>

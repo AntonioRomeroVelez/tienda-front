@@ -6,14 +6,18 @@ import ProductList from "./components/ProductList";
 import ProductForm from "./components/ProductForm";
 import "./index.css";
 import App from "./App.jsx";
+import NavbarProductos from "./components/NavbarProductos.jsx";
+import ProductDetail from "./components/ProductDetail.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
+      <NavbarProductos />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/productForm" element={<ProductForm />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

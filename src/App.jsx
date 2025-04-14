@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { getProducts } from "./api/productAPI";
 import ProductList from "./components/ProductList";
 
-import NavbarProductos from "./components/NavbarProductos";
-
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -23,9 +21,6 @@ function App() {
 
   return (
     <div className="container">
-      <NavbarProductos />
-      <h1>Lista de Productos</h1>
-
       <ProductList products={products} />
     </div>
   );
