@@ -4,6 +4,7 @@ import ProductList from "./components/ProductList";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Cargar productos al iniciar
   useEffect(() => {
@@ -19,9 +20,31 @@ function App() {
     }
   };
 
+  // Filtrar productos por el término de búsqueda
+  const filteredProducts = products.filter((product) =>
+    product.nombre?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="container">
-      <ProductList products={products} />
+      <input
+        type="text"
+        placeholder="Buscar productos..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{
+          padding: "10px",
+          marginBottom: "20px",
+          width: "100%",
+          fontSize: "16px",
+        }}
+      />
+
+      {searchTerm === "" ? (
+        <ProductList products={products} />
+      ) : (
+        <ProductList products={filteredProducts} />
+      )}
     </div>
   );
 }
